@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Page</title>
+    <link rel="stylesheet" href="courses.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-container input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            width: 300px;
+            border: 2px solid #333;
+            border-radius: 4px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .courses-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .course-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(20% - 1rem);
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .course-box img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .course-box p {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .course-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .highlight {
+            border: 2px solid #007BFF; /* Highlight color */
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 1200px) {
+            .course-box {
+                width: calc(25% - 1rem);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .course-box {
+                width: calc(33.33% - 1rem);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .course-box {
+                width: calc(50% - 1rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Online Course Platform</h1>
+        </header>
+        <main>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search for a course..." oninput="searchCourses()">
+            </div>
+            <h2>Our Courses</h2>
+            <div class="courses-container" id="courses">
+                <div class="course-box" onclick="window.location.href='course1.html'" data-course-name="Mern Stack full course">
+                    <img src="mernstackphoto.jpg" alt="Course 1">
+                    <p>Mern Stack full course</p>
+                </div> 
+                <div class="course-box" onclick="window.location.href='course2.html'" data-course-name="C Language full course">
+                    <img src="c langphoto.jpg" alt="Course 2">
+                    <p>C Language full course</p>
+                </div>
+                <div class="course-box" onclick="window.location.href='course3.html'" data-course-name="HTML full course">
+                    <img src="html.jpg" alt="Course 20">
+                    <p>HTML full course</p>
+                </div>
+                <div class="course-box" onclick="window.location.href='course4.html'" data-course-name="Java full course">
+                    <img src="java.jpg" alt="Course 2">
+                    <p>Java full course</p>
+                </div>
+                <div class="course-box" onclick="window.location.href='course5.html'" data-course-name="Python full course">
+                    <img src="python.jpg" alt="Course 2">
+                    <p>Python full course</p>
+                </div>
+                <div class="course-box" onclick="window.location.href='course6.html'" data-course-name="C++ full course">
+                    <img src="c++course.jpg" alt="Course 2">
+                    <p>C++ full course</p>
+                </div>
+                <div class="course-box" onclick="window.location.href='course7.html'" data-course-name="Freelancing full course">
+                    <img src="freelancing.jpg" alt="Course 2">
+                    <p>Freelancing full course</p>
+                </div>
+                <div class="course-box" onclick="window.location.href='course8.html'" data-course-name="Adobe Premiere Pro">
+                    <img src="adobe.jpg" alt="Course 2">
+                    <p>Adobe Premiere Pro</p>
+                </div>
+                <div class="course-box" onclick="window.location.href='course9.html'" data-course-name="DBMS Full course">
+                    <img src="dbms.png" alt="Course 2">
+                    <p>DBMS Full course</p>
+                </div>
+                <div class="course-box" onclick="window.location.href='course10.html'" data-course-name="Data Structures">
+                    <img src="dss.jpg" alt="Course 2">
+                    <p>Data Structures</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Online Course Platform</p>
+        </footer>
+    </div>
+
+    <script>
+        function openCourse(url) {
+            window.open(url, "_blank");
+        }
+
+        function searchCourses() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const courseBoxes = document.querySelectorAll('.course-box');
+
+            courseBoxes.forEach(box => {
+                const courseName = box.getAttribute('data-course-name').toLowerCase();
+                if (courseName.includes(searchInput) && searchInput !== "") {
+                    box.classList.add('highlight');
+                } else {
+                    box.classList.remove('highlight');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
